@@ -1,0 +1,43 @@
+openapi: 3.0.0
+info:
+  title: Sessions API
+  description: Optional multiline or single-line description.
+  version: 1.0.0
+servers:
+  - url: http://localhost:8000/v1
+    description: Optional server description, e.g. Main (production) server
+paths:
+  /sessions:
+    get:
+      summary: Returns a list of sessions.
+      description: Optional extended description in CommonMark or HTML.
+      responses:
+        '200':
+          description: A sample session
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    format: int
+                  petId:
+                    type: integer
+                    format: int
+                  quantity:
+                    type: integer
+                    format: int
+                  shipDate:
+                    type: string
+                    format: date-time
+                  status:
+                    type: string
+                    description: Order Status
+                    enum:
+                      - placed
+                      - approved
+                      - delivered
+                  complete:
+                    type: boolean
+                    default: false
