@@ -2,7 +2,7 @@ openapi: 3.0.0
 info:
   title: GeoQuery Demo APIs
   description: Demo apis
-  version: 1.0.0
+  version: 1.0.2
 servers:
   - url: 'https://virtserver.swaggerhub.com/ShubhamShewdikar/GeoQuery-demo-apis/1.0.0'
 paths:

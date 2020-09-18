@@ -4,8 +4,8 @@ info:
   description: Optional multiline or single-line description.
   version: 1.0.0
 servers:
-  - url: http://localhost:8000/v1
-    description: Optional server description, e.g. Main (production) server
+  - url: 'http://localhost:8000/v1'
+    description: 'Optional server description, e.g. Main (production) server'
 paths:
   /sessions:
     get:
@@ -41,3 +41,9 @@ paths:
                   complete:
                     type: boolean
                     default: false
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: {}

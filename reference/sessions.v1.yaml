@@ -1,0 +1,56 @@
+openapi: 3.0.0
+info:
+  title: sessions.yml
+  version: '1.0'
+servers:
+  - url: 'http://localhost:3000'
+paths:
+  /sessions:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                  id:
+                    type: string
+                  start-datetime:
+                    type: string
+                  end-datetime:
+                    type: string
+                  '':
+                    type: string
+      operationId: get-sessions
+      description: Get the list of sessions.
+    post:
+      summary: ''
+      operationId: post-sessions
+      responses:
+        '200':
+          description: OK
+          headers: {}
+      description: Create a new Sessions.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                start-datetime:
+                  type: string
+                end-datetime:
+                  type: string
+                id:
+                  type: string
+                  format: uuid
+components:
+  schemas: {}
