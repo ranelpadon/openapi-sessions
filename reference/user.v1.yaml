@@ -16,12 +16,13 @@ servers:
     description: Local
 tags:
   - name: User API
-    description: "User Signip/Signin"
+    description: User Signip/Signin
 paths:
   /user/signup:
     post:
       summary: ''
-      tags: [User API]
+      tags:
+        - User API
       operationId: post-user-signup
       responses:
         '201':
@@ -90,12 +91,13 @@ paths:
                   first_name: Alpha
                   last_name: Bravo
                   password: alpha_bravo
-        description: User signup details.
+        description: User signup data.
     parameters: []
   /user/signin:
     post:
       summary: ''
-      tags: [User API]
+      tags:
+        - User API
       operationId: post-user-signin
       responses:
         '200':
@@ -139,7 +141,36 @@ paths:
               required:
                 - email
                 - password
-        description: Login user details.
+        description: User signin data.
+  /user/check:
+    post:
+      summary: ''
+      operationId: post-user-check
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  exists:
+                    type: boolean
+                    example: 'true'
+      description: Check if user exists.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  format: email
+                  example: alpha@bravo.com
+              required:
+                - email
+        description: User check data.
 components:
   schemas: {}
   securitySchemes: {}
