@@ -181,6 +181,7 @@ paths:
               required:
                 - email
         description: User check data.
+    parameters: []
 components:
   schemas: {}
   securitySchemes: {}
