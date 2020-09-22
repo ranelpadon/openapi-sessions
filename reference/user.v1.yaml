@@ -14,10 +14,14 @@ info:
 servers:
   - url: 'http://localhost:3000'
     description: Local
+tags:
+  - name: User API
+    description: "User Signip/Signin"
 paths:
   /user/signup:
     post:
       summary: ''
+      tags: [User API]
       operationId: post-user-signup
       responses:
         '201':
@@ -88,6 +92,54 @@ paths:
                   password: alpha_bravo
         description: User signup details.
     parameters: []
+  /user/signin:
+    post:
+      summary: ''
+      tags: [User API]
+      operationId: post-user-signin
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  first_name:
+                    type: string
+                    example: Alpha
+                  last_name:
+                    type: string
+                    example: Bravo
+                  email:
+                    type: string
+                    format: email
+                    example: alpha@bravo.com
+                  token:
+                    type: string
+                    example: abcdefghijklmnopqrstuvwxyz
+                  refresh_token:
+                    type: string
+                    example: abcdefghijklmnopqrstuvwxyz0123456789
+      description: Login user.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  format: email
+                  example: alpha@bravo.com
+                password:
+                  type: string
+                  format: password
+                  example: alpha_bravo
+              required:
+                - email
+                - password
+        description: Login user details.
 components:
   schemas: {}
   securitySchemes: {}
