@@ -41,6 +41,15 @@ paths:
                   complete:
                     type: boolean
                     default: false
+              examples:
+                example-1:
+                  value:
+                    id: 0
+                    petId: 0
+                    quantity: 0
+                    shipDate: '2019-08-24T14:15:22Z'
+                    status: placed
+                    complete: false
       requestBody:
         content:
           application/json:

@@ -1,0 +1,93 @@
+openapi: 3.0.0
+info:
+  title: user
+  version: '1.0'
+  description: API for User Signup/Signin
+  contact:
+    name: Magnetic Asia
+    url: 'https://www.magneticasia.com/'
+    email: info@magneticasia.com
+  termsOfService: 'https://www.magneticasia.com/terms-conditions.html'
+  license:
+    name: MIT
+    url: 'https://opensource.org/licenses/MIT'
+servers:
+  - url: 'http://localhost:3000'
+    description: Local
+paths:
+  /user/signup:
+    post:
+      summary: ''
+      operationId: post-user-signup
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  first_name:
+                    type: string
+                    example: Alpha
+                  last_name:
+                    type: string
+                    example: Bravo
+                  token:
+                    type: string
+                    example: abcdefghijklmnopqrstuvwxyz
+                  refresh_token:
+                    type: string
+                    example: abcdefghijklmnopqrstuvwxyz0123456789
+              examples:
+                example-1:
+                  value:
+                    first_name: Alpha
+                    last_name: Bravo
+                    token: abcdefghijklmnopqrstuvwxyz
+                    refresh_token: abcdefghijklmnopqrstuvwxyz0123456789
+          headers: {}
+      description: Create user.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  format: email
+                  example: alpha@bravo.com
+                email_confirm:
+                  type: string
+                  format: email
+                  example: alpha@bravo.com
+                first_name:
+                  type: string
+                  example: Alpha
+                last_name:
+                  type: string
+                  example: Bravo
+                password:
+                  type: string
+                  format: password
+                  example: alpha_bravo
+              required:
+                - email
+                - email_confirm
+                - first_name
+                - last_name
+                - password
+            examples:
+              example-1:
+                value:
+                  email: alpha@bravo.com
+                  email_confirm: alpha@bravo.com
+                  first_name: Alpha
+                  last_name: Bravo
+                  password: alpha_bravo
+        description: User signup details.
+    parameters: []
+components:
+  schemas: {}
+  securitySchemes: {}
