@@ -38,7 +38,7 @@ paths:
                   last_name:
                     type: string
                     example: Bravo
-                  token:
+                  access_token:
                     type: string
                     example: abcdefghijklmnopqrstuvwxyz
                   refresh_token:
@@ -117,7 +117,7 @@ paths:
                     type: string
                     format: email
                     example: alpha@bravo.com
-                  token:
+                  access_token:
                     type: string
                     example: abcdefghijklmnopqrstuvwxyz
                   refresh_token:
