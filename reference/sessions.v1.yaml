@@ -1,11 +1,24 @@
 openapi: 3.0.0
 info:
-  title: sessions.yml
+  title: sessions
   version: '1.0'
+  description: API for User Signup/Signin
+  contact:
+    name: Magnetic Asia
+    url: 'https://www.magneticasia.com/'
+    email: info@magneticasia.com
+  termsOfService: 'https://www.magneticasia.com/terms-conditions.html'
+  license:
+    name: MIT
+    url: 'https://opensource.org/licenses/MIT'
 servers:
   - url: 'http://localhost:3000'
+    description: Local
+tags:
+  - name: Sessions API
+    description: Sessions CRUD and related stuff.
 paths:
-  /sessions:
+  /session-event-types:
     get:
       summary: Your GET endpoint
       tags: []
@@ -15,42 +28,17 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  name:
-                    type: string
-                  id:
-                    type: string
-                  start-datetime:
-                    type: string
-                  end-datetime:
-                    type: string
-                  '':
-                    type: string
-      operationId: get-sessions
-      description: Get the list of sessions.
-    post:
-      summary: ''
-      operationId: post-sessions
-      responses:
-        '200':
-          description: OK
-          headers: {}
-      description: Create a new Sessions.
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                name:
-                  type: string
-                start_datetime:
-                  type: string
-                end_datetime:
-                  type: string
-                id:
-                  type: string
-                  format: uuid
-components:
-  schemas: {}
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                      example: Type - Alpha
+              examples:
+                example-1:
+                  value:
+                    - name: Type - Alpha
+                    - name: Type - Bravo
+      operationId: get-session-event-types
+      description: Get the list of session event types.
