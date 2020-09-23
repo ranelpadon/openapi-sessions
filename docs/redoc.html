@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700|Roboto:300,400,700" rel="stylesheet">
 
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <style>
             body {
                 margin: 0;
@@ -53,8 +54,14 @@
 
             var queryParams = getQueryParams(window.location.href);
             var yamlFile = queryParams['api'];
+
+            $(document).ready(function() {
+                // ReDoc will hook to a `<redoc>` element.
+                $('body').append("<redoc spec-url='../reference/sessions.v1.yaml'></redoc>");
+
+                // Load the ReDoc script and process the ReDoc element.
+                $.getScript("https://cdn.jsdelivr.net/npm/redoc@next/bundles/redoc.standalone.js");
+            });
         </script>
-        <redoc spec-url='../reference/sessions.v1.yaml'></redoc>
-        <script src="https://cdn.jsdelivr.net/npm/redoc@next/bundles/redoc.standalone.js"></script>
     </body>
 </html>
