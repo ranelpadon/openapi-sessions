@@ -54,10 +54,11 @@
 
             var queryParams = getQueryParams(window.location.href);
             var yamlFile = queryParams['api'];
+            var yamlFilePath = '../reference/' + yamlFile + '.yaml';
 
             $(document).ready(function() {
                 // ReDoc will hook to a `<redoc>` element.
-                $('body').append("<redoc spec-url='../reference/sessions.v1.yaml'></redoc>");
+                $('body').append("<redoc spec-url='" + yamlFilePath + "'></redoc>");
 
                 // Load the ReDoc script and process the ReDoc element.
                 $.getScript("https://cdn.jsdelivr.net/npm/redoc@next/bundles/redoc.standalone.js");
