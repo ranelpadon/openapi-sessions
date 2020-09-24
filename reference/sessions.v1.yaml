@@ -41,8 +41,10 @@ paths:
               examples:
                 example-1:
                   value:
-                    - name: Type - Alpha
-                    - name: Type - Bravo
+                    - id: 1
+                      name: Type - Alpha
+                    - id: 2
+                      name: Type - Bravo
                 example-2:
                   value:
                     - name: Type - Alpha
@@ -140,3 +142,105 @@ paths:
           name: Authorization
           description: The JWT/Bearer token.
           required: true
+  /sessions:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: number
+                      minimum: 1
+                    name:
+                      type: string
+              examples:
+                example-1:
+                  value:
+                    - id: 1
+                      name: Session - Alpha
+                    - id: 2
+                      name: Session - Bravo
+      operationId: get-sessions
+      description: Session list.
+    post:
+      summary: ''
+      operationId: post-sessions
+      responses:
+        '201':
+          description: Created
+      description: Session create data.
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: Authorization
+          required: true
+          description: JWT Bearer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                session_name:
+                  type: string
+                session_event_type:
+                  type: number
+                  minimum: 1
+                session_event_categories:
+                  type: array
+                  items:
+                    type: number
+                    minimum: 1
+                session_tags:
+                  type: array
+                  items:
+                    type: string
+                organisation_name:
+                  type: string
+                  example: Organisation - Alpha
+                start_date:
+                  type: string
+                  format: date
+                end_date:
+                  type: string
+                  format: date
+                session_timing:
+                  type: number
+                  minimum: 1
+                  maximum: 2
+                  enum:
+                    - 1
+                    - 2
+                  example: 1
+              required:
+                - session_name
+                - session_event_type
+                - session_event_categories
+                - organisation_name
+                - start_date
+                - end_date
+                - session_timing
+            examples:
+              example-1:
+                value:
+                  session_name: Session - Alpha
+                  session_event_type: 1
+                  session_event_categories:
+                    - 4
+                    - 5
+                  session_tags:
+                    - tag - alpha
+                    - tag - bravo
+                  organisation_name: Organisation - Alpha
+                  start_date: '2019-08-24 13:00:00'
+                  end_date: '2019-08-24 17:00:00'
+                  session_timing: 1
