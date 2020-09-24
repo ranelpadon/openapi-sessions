@@ -41,4 +41,54 @@ paths:
                     - name: Type - Alpha
                     - name: Type - Bravo
       operationId: get-session-event-types
-      description: Get the list of session event types.
+      description: Get the list of session-event types.
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: Authorization
+          description: The JWT/Bearer token.
+  /session-event-categories:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                      example: Type - Alpha
+                    sub-categories:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          name:
+                            type: string
+              examples:
+                example-1:
+                  value:
+                    - name: Category - Alpha
+                      sub-categories:
+                        - name: Sub-Category - Alpha 1.1
+                    - name: Category - Bravo
+                      sub-categories:
+                        - name: Sub-Category - Bravo 1.1
+                        - name: Sub-Category - Bravo 1.2
+                    - name: Category - Charlie
+                      sub-categories: []
+      operationId: get-session-event-categories
+      description: Get the list of session-event categories.
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: Authorization
+          description: The JWT/Bearer token.
