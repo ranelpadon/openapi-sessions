@@ -16,7 +16,7 @@ servers:
     description: Stoplight Mock Server
 tags:
   - name: User API
-    description: User Signip/Signin
+    description: User Signup/Signin
 paths:
   /user/signup:
     post:
