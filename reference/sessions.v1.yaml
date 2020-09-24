@@ -48,6 +48,7 @@ paths:
           in: header
           name: Authorization
           description: The JWT/Bearer token.
+          required: true
   /session-event-categories:
     get:
       summary: Your GET endpoint
@@ -92,3 +93,4 @@ paths:
           in: header
           name: Authorization
           description: The JWT/Bearer token.
+          required: true
