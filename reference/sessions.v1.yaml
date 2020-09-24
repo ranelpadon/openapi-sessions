@@ -20,8 +20,8 @@ tags:
 paths:
   /session-event-types:
     get:
-      summary: Your GET endpoint
-      tags: []
+      summary: get-session-event-types
+      tags: [Sessions API]
       responses:
         '200':
           description: OK
@@ -60,8 +60,8 @@ paths:
           required: true
   /session-event-categories:
     get:
-      summary: Your GET endpoint
-      tags: []
+      summary: get-session-event-categories
+      tags: [Sessions API]
       responses:
         '200':
           description: OK
@@ -117,8 +117,8 @@ paths:
           required: true
   /organisation-name:
     get:
-      summary: Your GET endpoint
-      tags: []
+      summary: get-organisation-name
+      tags: [Sessions API]
       responses:
         '200':
           description: OK
@@ -144,8 +144,8 @@ paths:
           required: true
   /sessions:
     get:
-      summary: Your GET endpoint
-      tags: []
+      summary: get-sessions
+      tags: [Sessions API]
       responses:
         '200':
           description: OK
@@ -171,7 +171,8 @@ paths:
       operationId: get-sessions
       description: Session list.
     post:
-      summary: ''
+      summary: post-sessions
+      tags: [Sessions API]
       operationId: post-sessions
       responses:
         '201':
@@ -209,10 +210,8 @@ paths:
                   example: Organisation - Alpha
                 start_date:
                   type: string
-                  format: date
                 end_date:
                   type: string
-                  format: date
                 session_timing:
                   type: number
                   minimum: 1
@@ -241,6 +240,6 @@ paths:
                     - tag - alpha
                     - tag - bravo
                   organisation_name: Organisation - Alpha
-                  start_date: '2019-08-24 13:00:00'
-                  end_date: '2019-08-24 17:00:00'
+                  start_date: '2099-12-25 13:00:00.00'
+                  end_date: '2099-12-25 17:00:00.00'
                   session_timing: 1

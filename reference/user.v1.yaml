@@ -20,7 +20,7 @@ tags:
 paths:
   /user/signup:
     post:
-      summary: ''
+      summary: post-user-signup
       tags:
         - User API
       operationId: post-user-signup
@@ -101,7 +101,7 @@ paths:
     parameters: []
   /user/signin:
     post:
-      summary: ''
+      summary: post-user-signin
       tags:
         - User API
       operationId: post-user-signin
@@ -158,7 +158,7 @@ paths:
         description: User signin data.
   /user/check:
     post:
-      summary: ''
+      summary: post-user-check
       tags:
         - User API
       operationId: post-user-check
