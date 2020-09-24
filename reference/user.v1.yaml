@@ -12,8 +12,8 @@ info:
     name: MIT
     url: 'https://opensource.org/licenses/MIT'
 servers:
-  - url: 'http://localhost:3000'
-    description: Local
+  - url: 'https://magneticasia.stoplight.io/mocks/magneticasia/openapi-sessions/165472'
+    description: Stoplight Mock Server
 tags:
   - name: User API
     description: User Signip/Signin
