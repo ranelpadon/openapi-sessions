@@ -69,10 +69,6 @@ paths:
                   type: string
                   format: email
                   example: alpha@bravo.com
-                email_confirm:
-                  type: string
-                  format: email
-                  example: alpha@bravo.com
                 first_name:
                   type: string
                   example: Alpha
@@ -83,20 +79,22 @@ paths:
                   type: string
                   format: password
                   example: alpha_bravo
+                opt_in:
+                  type: boolean
               required:
                 - email
-                - email_confirm
                 - first_name
                 - last_name
                 - password
+                - opt_in
             examples:
               example-1:
                 value:
                   email: alpha@bravo.com
-                  email_confirm: alpha@bravo.com
                   first_name: Alpha
                   last_name: Bravo
                   password: alpha_bravo
+                  opt_in: true
         description: User signup data.
     parameters: []
   /user/signin:
