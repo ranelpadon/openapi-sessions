@@ -171,6 +171,13 @@ paths:
                   exists:
                     type: boolean
                     example: true
+              examples:
+                example-1:
+                  value:
+                    exists: true
+                example-2:
+                  value:
+                    exists: false
       description: Check if user exists.
       requestBody:
         content:
