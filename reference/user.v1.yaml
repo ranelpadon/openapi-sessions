@@ -193,6 +193,54 @@ paths:
                 - email
         description: User check data.
     parameters: []
+  /user/me:
+    post:
+      summary: post-user-detail
+      tags:
+        - User API
+      operationId: post-user-detail
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  first_name:
+                    type: string
+                    example: Alpha
+                  last_name:
+                    type: string
+                    example: Bravo
+                  email:
+                    type: string
+                    format: email
+                required:
+                  - first_name
+                  - last_name
+                  - email
+              examples:
+                example-1:
+                  value:
+                    first_name: Alpha
+                    last_name: Bravo
+                    email: alpha@bravo.com
+      description: Get the user details.
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              type: object
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: Authorization
+          description: JWT Token
+          required: true
+    parameters: []
 components:
   schemas: {}
   securitySchemes: {}
