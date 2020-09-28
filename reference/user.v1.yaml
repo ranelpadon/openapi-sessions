@@ -194,11 +194,11 @@ paths:
         description: User check data.
     parameters: []
   /user/me:
-    post:
+    get:
       summary: post-user-detail
       tags:
         - User API
-      operationId: post-user-detail
+      operationId: get-user-detail
       responses:
         '200':
           description: OK
@@ -227,12 +227,6 @@ paths:
                     last_name: Bravo
                     email: alpha@bravo.com
       description: Get the user details.
-      requestBody:
-        description: ''
-        content:
-          application/json:
-            schema:
-              type: object
       parameters:
         - schema:
             type: string
