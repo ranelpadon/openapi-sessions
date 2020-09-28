@@ -235,6 +235,13 @@ paths:
           description: JWT Token
           required: true
     parameters: []
+
+security:
+  - bearerAuth: []  
+    
 components:
   schemas: {}
-  securitySchemes: {}
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
