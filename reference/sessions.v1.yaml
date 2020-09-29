@@ -250,3 +250,9 @@ paths:
                   start_date: '2099-12-25 13:00:00.00'
                   end_date: '2099-12-25 17:00:00.00'
                   session_timing: 1
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: JWT
