@@ -96,6 +96,7 @@ paths:
                   password: alpha_bravo
                   opt_in: true
         description: User signup data.
+      security: []
     parameters: []
   /user/signin:
     post:
@@ -192,6 +193,7 @@ paths:
               required:
                 - email
         description: User check data.
+      security: []
     parameters: []
   /user/me:
     get:
@@ -228,10 +230,8 @@ paths:
                     email: alpha@bravo.com
       description: Get the user details.
     parameters: []
-
 security:
-  - BearerAuth: []  
-    
+  - BearerAuth: []
 components:
   schemas: {}
   securitySchemes:
