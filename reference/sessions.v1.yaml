@@ -191,26 +191,33 @@ paths:
                 organisation_name:
                   type: string
                   example: Organisation - Alpha
-                start_date:
-                  type: string
-                end_date:
-                  type: string
                 session_timing:
-                  type: number
-                  minimum: 1
-                  maximum: 2
+                  type: string
                   enum:
-                    - 1
-                    - 2
-                  example: 1
+                    - once
+                    - series
+                  example: once
+                start_end_datetimes:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      start_datetime:
+                        type: string
+                        example: '2099-12-25 13:00:00'
+                      end_datetime:
+                        type: string
+                        example: '2099-12-25 17:00:00'
+                    required:
+                      - start_datetime
+                      - end_datetime
               required:
                 - session_name
                 - session_event_type
                 - session_event_categories
                 - organisation_name
-                - start_date
-                - end_date
                 - session_timing
+                - start_end_datetimes
             examples:
               example-1:
                 value:
@@ -223,9 +230,29 @@ paths:
                     - tag - alpha
                     - tag - bravo
                   organisation_name: Organisation - Alpha
-                  start_date: '2099-12-25 13:00:00.00'
-                  end_date: '2099-12-25 17:00:00.00'
-                  session_timing: 1
+                  session_timing: once
+                  start_end_datetimes:
+                    - start_datetime: '2099-12-25 13:00:00'
+                      end_datetime: '2099-12-25 17:00:00'
+              example-2:
+                value:
+                  session_name: Session - Bravo
+                  session_event_type: 1
+                  session_event_categories:
+                    - 4
+                    - 5
+                  session_tags:
+                    - tag - alpha
+                    - tag - bravo
+                  organisation_name: Organisation - Bravo
+                  session_timing: series
+                  start_end_datetimes:
+                    - start_datetime: '2099-12-25 13:00:00'
+                      end_datetime: '2099-12-25 17:00:00'
+                    - start_datetime: '2099-12-27 13:00:00'
+                      end_datetime: '2099-12-27 17:00:00'
+                    - start_datetime: '2099-12-29 13:00:00'
+                      end_datetime: '2099-12-29 17:00:00'
 security:
   - BearerAuth: []
 components:

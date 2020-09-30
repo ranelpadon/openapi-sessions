@@ -192,6 +192,14 @@ paths:
                   example: alpha@bravo.com
               required:
                 - email
+          application/xml:
+            schema:
+              type: object
+              properties: {}
+          multipart/form-data:
+            schema:
+              type: object
+              properties: {}
         description: User check data.
       security: []
     parameters: []
@@ -218,6 +226,8 @@ paths:
                   email:
                     type: string
                     format: email
+                  '':
+                    type: object
                 required:
                   - first_name
                   - last_name
