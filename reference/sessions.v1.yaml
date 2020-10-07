@@ -213,29 +213,59 @@ paths:
                       - end_datetime
                 intermediate_fields:
                   type: object
+                  required:
+                    - start_date
+                    - end_date
+                    - start_time
+                    - end_time
                   properties:
                     days_of_the_week:
                       type: array
                       minItems: 7
                       maxItems: 7
-                      items:
-                        type: object
-                        minProperties: 3
-                        properties:
-                          id:
-                            type: number
-                            enum:
-                              - 0
-                              - 1
-                              - 2
-                              - 3
-                              - 4
-                              - 5
-                              - 6
-                          name:
-                            type: string
-                          enabled:
-                            type: boolean
+                      items: {}
+                    start_date:
+                      type: string
+                      example: '2099-12-25'
+                    end_date:
+                      type: string
+                      example: '2099-12-25'
+                    start_time:
+                      type: string
+                      example: '13:00:00'
+                    end_time:
+                      type: string
+                      example: '17:00:00'
+                    duration:
+                      type: number
+                      example: 4
+                      format: float
+                      enum:
+                        - 0.5
+                        - 1
+                        - 1.5
+                        - 2
+                        - 2.5
+                        - 3
+                        - 3.5
+                        - 4
+                        - 4.5
+                        - 5
+                        - 5.5
+                        - 6
+                        - 7
+                        - 7.5
+                        - 8
+                      minimum: 0
+                      maximum: 8
+                    number_of_weeks:
+                      type: integer
+                      minimum: 0
+                      maximum: 52
+                    number_of_sessions:
+                      type: integer
+                      minimum: 0
+                      maximum: 365
               required:
                 - session_name
                 - session_event_type
@@ -261,28 +291,10 @@ paths:
                     - start_datetime: '2099-12-25 13:00:00'
                       end_datetime: '2099-12-25 17:00:00'
                   intermediate_fields:
-                    days_of_the_week:
-                      - id: 0
-                        name: Monday
-                        enabled: true
-                      - id: 1
-                        name: Tuesday
-                        enabled: false
-                      - id: 2
-                        name: Wednesday
-                        enabled: true
-                      - id: 3
-                        name: Thursday
-                        enabled: false
-                      - id: 4
-                        name: Friday
-                        enabled: true
-                      - id: 5
-                        name: Saturday
-                        enabled: false
-                      - id: 6
-                        name: Sunday
-                        enabled: true
+                    start_date: '2099-12-25'
+                    end_date: '2099-12-25'
+                    start_time: '13:00:00'
+                    end_time: '17:00:00'
               example-2:
                 value:
                   session_name: Session - Bravo
@@ -303,16 +315,21 @@ paths:
                     - start_datetime: '2099-12-29 13:00:00'
                       end_datetime: '2099-12-29 17:00:00'
                   intermediate_fields:
+                    start_date: '2099-12-25'
+                    end_date: '2100-01-10'
+                    start_time: '13:00:00'
+                    end_time: '17:00:00'
+                    duration: 4
                     days_of_the_week:
                       - id: 0
                         name: Monday
-                        enabled: true
+                        enabled: false
                       - id: 1
                         name: Tuesday
                         enabled: false
                       - id: 2
                         name: Wednesday
-                        enabled: true
+                        enabled: false
                       - id: 3
                         name: Thursday
                         enabled: false
@@ -321,10 +338,12 @@ paths:
                         enabled: true
                       - id: 5
                         name: Saturday
-                        enabled: false
+                        enabled: true
                       - id: 6
                         name: Sunday
                         enabled: true
+                    number_of_weeks: 3
+                    number_of_sessions: 9
 security:
   - BearerAuth: []
 components:
