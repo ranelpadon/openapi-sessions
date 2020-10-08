@@ -161,7 +161,7 @@ paths:
       parameters:
         - schema:
             type: string
-            pattern: 'Accept: application/json; version=1'
+            pattern: application/json; version=1
           in: header
           name: Accept
           description: ''
