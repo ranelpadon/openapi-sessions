@@ -158,6 +158,14 @@ paths:
                       name: Session - Bravo
       operationId: get-sessions
       description: Session list.
+      parameters:
+        - schema:
+            type: string
+            pattern: 'Accept: application/json; version=1'
+          in: header
+          name: Accept
+          description: ''
+          required: true
     post:
       summary: post-sessions
       tags:
