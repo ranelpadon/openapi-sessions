@@ -97,6 +97,13 @@ paths:
                   opt_in: true
         description: User signup data.
       security: []
+      parameters:
+        - schema:
+            type: string
+            pattern: application/json; version=1
+          in: header
+          name: Accept
+          required: true
     parameters: []
   /user/signin:
     post:
@@ -155,6 +162,13 @@ paths:
                 - email
                 - password
         description: User signin data.
+      parameters:
+        - schema:
+            type: string
+            pattern: application/json; version=1
+          in: header
+          name: Accept
+          required: true
   /user/check:
     post:
       summary: post-user-check
@@ -202,6 +216,13 @@ paths:
               properties: {}
         description: User check data.
       security: []
+      parameters:
+        - schema:
+            type: string
+            pattern: application/json; version=1
+          in: header
+          name: Accept
+          required: true
     parameters: []
   /user/me:
     get:
@@ -239,6 +260,13 @@ paths:
                     last_name: Bravo
                     email: alpha@bravo.com
       description: Get the user details.
+      parameters:
+        - schema:
+            type: string
+            pattern: application/json; version=1
+          in: header
+          name: Accept
+          required: true
     parameters: []
 security:
   - BearerAuth: []
