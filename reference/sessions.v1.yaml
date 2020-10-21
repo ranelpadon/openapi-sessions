@@ -59,6 +59,12 @@ paths:
           in: header
           name: Accept
           required: true
+        - schema:
+            type: string
+            pattern: ^(en|zh_hant|zh_hans|ja|ko)$
+          in: header
+          name: Accept-Language
+          required: true
   /session-event-categories:
     get:
       summary: get-session-event-categories
@@ -119,6 +125,12 @@ paths:
           in: header
           name: Accept
           required: true
+        - schema:
+            type: string
+            pattern: ^(en|zh_hant|zh_hans|ja|ko)$
+          in: header
+          name: Accept-Language
+          required: true
   /organisation-name:
     get:
       summary: get-organisation-name
@@ -146,6 +158,12 @@ paths:
             pattern: application/json; version=1
           in: header
           name: Accept
+          required: true
+        - schema:
+            type: string
+            pattern: ^(en|zh_hant|zh_hans|ja|ko)$
+          in: header
+          name: Accept-Language
           required: true
   /sessions:
     get:
@@ -184,6 +202,12 @@ paths:
           name: Accept
           description: ''
           required: true
+        - schema:
+            type: string
+            pattern: ^(en|zh_hant|zh_hans|ja|ko)$
+          in: header
+          name: Accept-Language
+          required: true
     post:
       summary: post-sessions
       tags:
@@ -207,6 +231,12 @@ paths:
             pattern: application/json; version=1
           in: header
           name: Accept
+          required: true
+        - schema:
+            type: string
+            pattern: ^(en|zh_hant|zh_hans|ja|ko)$
+          in: header
+          name: Accept-Language
           required: true
       requestBody:
         content:
