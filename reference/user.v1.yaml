@@ -106,10 +106,9 @@ paths:
           required: true
         - schema:
             type: string
-            pattern: ^(en|zh_hant|zh_hans|ja|ko)$
+            pattern: ^(en|zh-hant|zh-hans|ja|ko)$
           in: header
           name: Accept-Language
-          required: true
     parameters: []
   /user/signin:
     post:
@@ -177,10 +176,9 @@ paths:
           required: true
         - schema:
             type: string
-            pattern: ^(en|zh_hant|zh_hans|ja|ko)$
+            pattern: ^(en|zh-hant|zh-hans|ja|ko)$
           in: header
           name: Accept-Language
-          required: true
   /user/check:
     post:
       summary: post-user-check
@@ -237,10 +235,9 @@ paths:
           required: true
         - schema:
             type: string
-            pattern: ^(en|zh_hant|zh_hans|ja|ko)$
+            pattern: ^(en|zh-hant|zh-hans|ja|ko)$
           in: header
           name: Accept-Language
-          required: true
     parameters: []
   /user/me:
     get:
@@ -287,10 +284,9 @@ paths:
           required: true
         - schema:
             type: string
-            pattern: ^(en|zh_hant|zh_hans|ja|ko)$
+            pattern: ^(en|zh-hant|zh-hans|ja|ko)$
           in: header
           name: Accept-Language
-          required: true
     parameters: []
 security:
   - BearerAuth: []
