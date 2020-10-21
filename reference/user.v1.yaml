@@ -106,7 +106,7 @@ paths:
           required: true
         - schema:
             type: string
-            pattern: en|zh_hant|zh_hans|ja|ko
+            pattern: ^(en|zh_hant|zh_hans|ja|ko)$
           in: header
           name: Accept-Language
           required: true
@@ -177,7 +177,7 @@ paths:
           required: true
         - schema:
             type: string
-            pattern: (en|zh_hant|zh_hans|ja|ko)
+            pattern: ^(en|zh_hant|zh_hans|ja|ko)$
           in: header
           name: Accept-Language
           required: true
@@ -237,7 +237,7 @@ paths:
           required: true
         - schema:
             type: string
-            pattern: en|zh_hant|zh_hans|ja|ko
+            pattern: ^(en|zh_hant|zh_hans|ja|ko)$
           in: header
           name: Accept-Language
           required: true
@@ -287,7 +287,7 @@ paths:
           required: true
         - schema:
             type: string
-            pattern: en|zh_hant|zh_hans|ja|ko
+            pattern: ^(en|zh_hant|zh_hans|ja|ko)$
           in: header
           name: Accept-Language
           required: true
