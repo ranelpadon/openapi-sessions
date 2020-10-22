@@ -439,8 +439,9 @@ paths:
                   country_code: HK
   /videos/streamers:
     get:
-      summary: Your GET endpoint
-      tags: []
+      summary: get-video-streamers
+      tags:
+        - Sessions API
       responses:
         '200':
           description: OK
