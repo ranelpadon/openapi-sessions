@@ -334,8 +334,8 @@ paths:
                 location:
                   type: string
                   enum:
-                    - online
                     - physical_location
+                    - online_location
                 video_streamer:
                   type: integer
                   minimum: 1
@@ -380,7 +380,7 @@ paths:
                     end_date: '2099-12-25'
                     start_time: '13:00:00'
                     end_time: '17:00:00'
-                  location: online
+                  location: online_location
                   video_streamer: 2
               example-2:
                 value:
