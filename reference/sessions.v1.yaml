@@ -409,6 +409,48 @@ paths:
                         enabled: true
                     number_of_weeks: 3
                     number_of_sessions: 9
+  /videos/streamers:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                      minimum: 1
+                    name:
+                      type: string
+              examples:
+                example-1:
+                  value:
+                    - id: 1
+                      name: Zoom
+                    - id: 2
+                      name: YouTube
+                    - id: 3
+                      name: Facebook
+      operationId: get-video-streamers
+      description: Video Streamers list
+      parameters:
+        - schema:
+            type: string
+            pattern: application/json; version=1
+          in: header
+          name: Accept
+          required: true
+        - schema:
+            type: string
+            pattern: ^(en|zh_hant|zh_hans|ja|ko)$
+          in: header
+          name: Accept-Language
 security:
   - BearerAuth: []
 components:
