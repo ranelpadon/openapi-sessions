@@ -331,6 +331,25 @@ paths:
                       type: integer
                       minimum: 0
                       maximum: 365
+                location:
+                  type: string
+                  enum:
+                    - online
+                    - physical_location
+                video_streamer:
+                  type: integer
+                  minimum: 1
+                venue_name:
+                  type: string
+                address_1:
+                  type: string
+                address_2:
+                  type: string
+                address_3:
+                  type: string
+                country_code:
+                  type: string
+                  pattern: '^[A-Z][A-Z]$'
               required:
                 - session_name
                 - session_event_type
@@ -339,6 +358,7 @@ paths:
                 - session_timing
                 - start_end_datetimes
                 - intermediate_fields
+                - location
             examples:
               example-1:
                 value:
@@ -360,6 +380,8 @@ paths:
                     end_date: '2099-12-25'
                     start_time: '13:00:00'
                     end_time: '17:00:00'
+                  location: online
+                  video_streamer: 2
               example-2:
                 value:
                   session_name: Session - Bravo
@@ -409,6 +431,12 @@ paths:
                         enabled: true
                     number_of_weeks: 3
                     number_of_sessions: 9
+                  location: physical_location
+                  venue_name: Alpha Venue
+                  address_1: Bravo Address 1
+                  address_2: ''
+                  address_3: ''
+                  country_code: HK
   /videos/streamers:
     get:
       summary: Your GET endpoint
