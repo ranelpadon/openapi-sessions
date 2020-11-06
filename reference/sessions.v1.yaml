@@ -467,8 +467,7 @@ paths:
           name: Accept-Language
   /countries:
     get:
-      summary: Your GET endpoint
-      tags: []
+      summary: get-countries
       responses:
         '200':
           description: OK
@@ -497,6 +496,8 @@ paths:
             pattern: ^(en|zh-hant|zh-hans|ja|ko)$
           in: header
           name: Accept-Language
+      tags:
+        - Sessions API
 security:
   - BearerAuth: []
 components:
