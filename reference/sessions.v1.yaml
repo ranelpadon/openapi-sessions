@@ -352,6 +352,10 @@ paths:
                   pattern: '^[A-Z][A-Z]$'
                 attendees_and_pricing:
                   type: object
+                  required:
+                    - quantity_per_session
+                    - currency
+                    - price_per_session
                   properties:
                     quantity_per_session:
                       type: integer
@@ -361,10 +365,6 @@ paths:
                       minimum: 1
                     price_per_session:
                       type: number
-                  required:
-                    - quantity_per_session
-                    - currency
-                    - price_per_session
               required:
                 - session_name
                 - session_event_type
@@ -374,6 +374,7 @@ paths:
                 - start_end_datetimes
                 - intermediate_fields
                 - location
+                - attendees_and_pricing
             examples:
               example-1:
                 value:
