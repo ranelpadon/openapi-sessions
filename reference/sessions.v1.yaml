@@ -75,7 +75,26 @@ paths:
           content:
             application/json:
               schema:
-                type: object
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                      example: Type - Alpha
+                    sub-categories:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          name:
+                            type: string
+                          id:
+                            type: number
+                            minimum: 1
+                    id:
+                      type: number
+                      minimum: 1
               examples:
                 example-1:
                   value:
@@ -96,10 +115,6 @@ paths:
                       sub-categories:
                         - id: 7
                           name: Sub-Category - Charlie 1.1
-            application/xml:
-              schema:
-                type: object
-                properties: {}
       operationId: get-session-event-categories
       description: Get the list of session-event categories.
       parameters:
