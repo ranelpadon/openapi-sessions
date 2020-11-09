@@ -536,7 +536,7 @@ paths:
                       type: number
                     fee_information:
                       type: string
-                    system:
+                    system_fee:
                       type: number
               examples:
                 example-1:
@@ -544,12 +544,21 @@ paths:
                     - id: 1
                       name: Macanese Pataca
                       iso: MOP
+                      system_fee: 10.5
+                      average_processing_fees: 2
+                      fee_information: Alpha Bravo WYSIWYG text
                     - id: 2
                       name: Hong Kong Dollar
                       iso: HKD
+                      system_fee: 10.5
+                      average_processing_fees: 3
+                      fee_information: Charlie Delta WYSIWYG text
                     - id: 3
                       name: US Dollar
                       iso: USD
+                      system_fee: 10.5
+                      average_processing_fees: 4
+                      fee_information: Echo Foxtrot WYSIWYG text
       operationId: get-currencies
       description: Get the list of currencies.
       parameters:
