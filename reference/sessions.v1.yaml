@@ -510,6 +510,60 @@ paths:
           name: Accept-Language
       tags:
         - Sessions API
+  /currencies:
+    get:
+      summary: get-currencies
+      tags:
+        - Sessions API
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: number
+                      minimum: 1
+                    name:
+                      type: string
+                    iso:
+                      type: string
+                    average_processing_fees:
+                      type: number
+                    fee_information:
+                      type: string
+                    system:
+                      type: number
+              examples:
+                example-1:
+                  value:
+                    - id: 1
+                      name: Macanese Pataca
+                      iso: MOP
+                    - id: 2
+                      name: Hong Kong Dollar
+                      iso: HKD
+                    - id: 3
+                      name: US Dollar
+                      iso: USD
+      operationId: get-currencies
+      description: Get the list of currencies.
+      parameters:
+        - schema:
+            type: string
+            pattern: application/json; version=1
+          in: header
+          name: Accept
+          required: true
+        - schema:
+            type: string
+            pattern: ^(en|zh-hant|zh-hans|ja|ko)$
+          in: header
+          name: Accept-Language
 security:
   - BearerAuth: []
 components:
