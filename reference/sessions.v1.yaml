@@ -350,6 +350,21 @@ paths:
                 country_code:
                   type: string
                   pattern: '^[A-Z][A-Z]$'
+                attendees_and_pricing:
+                  type: object
+                  properties:
+                    quantity_per_session:
+                      type: integer
+                      minimum: 1
+                    currency:
+                      type: integer
+                      minimum: 1
+                    price_per_session:
+                      type: number
+                  required:
+                    - quantity_per_session
+                    - currency
+                    - price_per_session
               required:
                 - session_name
                 - session_event_type
@@ -382,6 +397,10 @@ paths:
                     end_time: '17:00:00'
                   location: online_location
                   video_streamer: 2
+                  attendees_and_pricing:
+                    currency: 2
+                    price_per_session: 10
+                    quantity_per_session: 25
               example-2:
                 value:
                   session_name: Session - Bravo
@@ -437,6 +456,10 @@ paths:
                   address_2: ''
                   address_3: ''
                   country_code: HK
+                  attendees_and_pricing:
+                    currency: 2
+                    price_per_session: 10
+                    quantity_per_session: 25
   /videos/streamers:
     get:
       summary: get-video-streamers
