@@ -239,117 +239,139 @@ paths:
             schema:
               type: object
               properties:
-                session_name:
-                  type: string
-                session_event_type:
-                  type: number
-                  minimum: 1
-                session_event_categories:
-                  type: array
-                  items:
-                    type: number
-                    minimum: 1
-                session_tags:
-                  type: array
-                  items:
-                    type: string
-                organisation_name:
-                  type: string
-                  example: Organisation - Alpha
-                session_timing:
-                  type: string
-                  enum:
-                    - once
-                    - series
-                  example: once
-                start_end_datetimes:
-                  type: array
-                  items:
-                    type: object
-                    properties:
-                      start_datetime:
-                        type: string
-                        example: '2099-12-25 13:00:00'
-                      end_datetime:
-                        type: string
-                        example: '2099-12-25 17:00:00'
-                    required:
-                      - start_datetime
-                      - end_datetime
-                intermediate_fields:
+                basic_information:
                   type: object
                   required:
-                    - start_date
-                    - end_date
-                    - start_time
-                    - end_time
+                    - basic_information
+                    - session_timing
+                    - location
                   properties:
-                    days_of_the_week:
-                      type: array
-                      minItems: 7
-                      maxItems: 7
-                      items: {}
-                    start_date:
-                      type: string
-                      example: '2099-12-25'
-                    end_date:
-                      type: string
-                      example: '2099-12-25'
-                    start_time:
-                      type: string
-                      example: '13:00:00'
-                    end_time:
-                      type: string
-                      example: '17:00:00'
-                    duration:
-                      type: number
-                      example: 4
-                      format: float
-                      enum:
-                        - 0.5
-                        - 1
-                        - 1.5
-                        - 2
-                        - 2.5
-                        - 3
-                        - 3.5
-                        - 4
-                        - 4.5
-                        - 5
-                        - 5.5
-                        - 6
-                        - 7
-                        - 7.5
-                        - 8
-                      minimum: 0
-                      maximum: 8
-                    number_of_weeks:
-                      type: integer
-                      minimum: 0
-                      maximum: 52
-                    number_of_sessions:
-                      type: integer
-                      minimum: 0
-                      maximum: 365
-                location:
-                  type: string
-                  enum:
-                    - physical_location
-                    - online_location
-                video_streamer:
-                  type: integer
-                  minimum: 1
-                venue_name:
-                  type: string
-                address_1:
-                  type: string
-                address_2:
-                  type: string
-                address_3:
-                  type: string
-                country_code:
-                  type: string
-                  pattern: '^[A-Z][A-Z]$'
+                    basic_information:
+                      type: object
+                      required:
+                        - session_name
+                        - session_event_type
+                        - session_event_categories
+                        - organisation_name
+                      properties:
+                        session_name:
+                          type: string
+                        session_event_type:
+                          type: number
+                          minimum: 1
+                        session_event_categories:
+                          type: array
+                          items:
+                            type: number
+                            minimum: 1
+                        session_tags:
+                          type: array
+                          items:
+                            type: string
+                        organisation_name:
+                          type: string
+                          example: Organisation - Alpha
+                    session_timing:
+                      type: object
+                      required:
+                        - session_timing
+                        - start_date
+                        - end_date
+                        - start_time
+                        - end_time
+                        - start_end_datetimes
+                      properties:
+                        session_timing:
+                          type: string
+                          enum:
+                            - once
+                            - series
+                          example: once
+                        days_of_the_week:
+                          type: array
+                          minItems: 7
+                          maxItems: 7
+                          items: {}
+                        start_date:
+                          type: string
+                          example: '2099-12-25'
+                        end_date:
+                          type: string
+                          example: '2099-12-25'
+                        start_time:
+                          type: string
+                          example: '13:00:00'
+                        end_time:
+                          type: string
+                          example: '17:00:00'
+                        duration:
+                          type: number
+                          example: 4
+                          format: float
+                          enum:
+                            - 0.5
+                            - 1
+                            - 1.5
+                            - 2
+                            - 2.5
+                            - 3
+                            - 3.5
+                            - 4
+                            - 4.5
+                            - 5
+                            - 5.5
+                            - 6
+                            - 7
+                            - 7.5
+                            - 8
+                          minimum: 0
+                          maximum: 8
+                        number_of_weeks:
+                          type: integer
+                          minimum: 0
+                          maximum: 52
+                        number_of_sessions:
+                          type: integer
+                          minimum: 0
+                          maximum: 365
+                        start_end_datetimes:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              start_datetime:
+                                type: string
+                                example: '2099-12-25 13:00:00'
+                              end_datetime:
+                                type: string
+                                example: '2099-12-25 17:00:00'
+                            required:
+                              - start_datetime
+                              - end_datetime
+                    location:
+                      type: object
+                      required:
+                        - location
+                      properties:
+                        location:
+                          type: string
+                          enum:
+                            - physical_location
+                            - online_location
+                        video_streamer:
+                          type: integer
+                          minimum: 1
+                        venue_name:
+                          type: string
+                        address_1:
+                          type: string
+                        address_2:
+                          type: string
+                        address_3:
+                          type: string
+                        country_code:
+                          type: string
+                          pattern: '^[A-Z][A-Z]$'
                 attendees_and_pricing:
                   type: object
                   required:
@@ -366,97 +388,96 @@ paths:
                     price_per_session:
                       type: number
               required:
-                - session_name
-                - session_event_type
-                - session_event_categories
-                - organisation_name
-                - session_timing
-                - start_end_datetimes
-                - intermediate_fields
-                - location
+                - basic_information
                 - attendees_and_pricing
             examples:
               example-1:
                 value:
-                  session_name: Session - Alpha
-                  session_event_type: 1
-                  session_event_categories:
-                    - 4
-                    - 5
-                  session_tags:
-                    - tag - alpha
-                    - tag - bravo
-                  organisation_name: Organisation - Alpha
-                  session_timing: once
-                  start_end_datetimes:
-                    - start_datetime: '2099-12-25 13:00:00'
-                      end_datetime: '2099-12-25 17:00:00'
-                  intermediate_fields:
-                    start_date: '2099-12-25'
-                    end_date: '2099-12-25'
-                    start_time: '13:00:00'
-                    end_time: '17:00:00'
-                  location: online_location
-                  video_streamer: 2
+                  basic_information:
+                    basic_information:
+                      session_name: Session - Alpha
+                      session_event_type: 1
+                      session_event_categories:
+                        - 4
+                        - 5
+                      session_tags:
+                        - tag - alpha
+                        - tag - bravo
+                      organisation_name: Organisation - Alpha
+                    session_timing:
+                      session_timing: once
+                      start_date: '2099-12-25'
+                      end_date: '2099-12-25'
+                      start_time: '13:00:00'
+                      end_time: '17:00:00'
+                      start_end_datetimes:
+                        - start_datetime: '2099-12-25 13:00:00'
+                          end_datetime: '2099-12-25 17:00:00'
+                    location:
+                      location: online_location
+                      video_streamer: 2
                   attendees_and_pricing:
                     currency: 2
                     price_per_session: 10
                     quantity_per_session: 25
               example-2:
                 value:
-                  session_name: Session - Bravo
-                  session_event_type: 1
-                  session_event_categories:
-                    - 4
-                    - 5
-                  session_tags:
-                    - tag - alpha
-                    - tag - bravo
-                  organisation_name: Organisation - Bravo
-                  session_timing: series
-                  start_end_datetimes:
-                    - start_datetime: '2099-12-25 13:00:00'
-                      end_datetime: '2099-12-25 17:00:00'
-                    - start_datetime: '2099-12-27 13:00:00'
-                      end_datetime: '2099-12-27 17:00:00'
-                    - start_datetime: '2099-12-29 13:00:00'
-                      end_datetime: '2099-12-29 17:00:00'
-                  intermediate_fields:
-                    start_date: '2099-12-25'
-                    end_date: '2100-01-10'
-                    start_time: '13:00:00'
-                    end_time: '17:00:00'
-                    duration: 4
-                    days_of_the_week:
-                      - id: 0
-                        name: Monday
-                        enabled: false
-                      - id: 1
-                        name: Tuesday
-                        enabled: false
-                      - id: 2
-                        name: Wednesday
-                        enabled: false
-                      - id: 3
-                        name: Thursday
-                        enabled: false
-                      - id: 4
-                        name: Friday
-                        enabled: true
-                      - id: 5
-                        name: Saturday
-                        enabled: true
-                      - id: 6
-                        name: Sunday
-                        enabled: true
-                    number_of_weeks: 3
-                    number_of_sessions: 9
-                  location: physical_location
-                  venue_name: Alpha Venue
-                  address_1: Bravo Address 1
-                  address_2: ''
-                  address_3: ''
-                  country_code: HK
+                  basic_information:
+                    basic_information:
+                      session_name: Session - Bravo
+                      session_event_type: 1
+                      session_event_categories:
+                        - 4
+                        - 5
+                      session_tags:
+                        - tag - alpha
+                        - tag - bravo
+                      organisation_name: Organisation - Bravo
+                    session_timing:
+                      session_timing: series
+                      start_date: '2099-12-25'
+                      end_date: '2100-01-10'
+                      start_time: '13:00:00'
+                      end_time: '17:00:00'
+                      duration: 4
+                      days_of_the_week:
+                        - id: 0
+                          name: Monday
+                          enabled: false
+                        - id: 1
+                          name: Tuesday
+                          enabled: false
+                        - id: 2
+                          name: Wednesday
+                          enabled: false
+                        - id: 3
+                          name: Thursday
+                          enabled: false
+                        - id: 4
+                          name: Friday
+                          enabled: true
+                        - id: 5
+                          name: Saturday
+                          enabled: true
+                        - id: 6
+                          name: Sunday
+                          enabled: true
+                      number_of_weeks: 3
+                      number_of_sessions: 9
+                      start_end_datetimes:
+                        - start_datetime: '2099-12-25 13:00:00'
+                          end_datetime: '2099-12-25 17:00:00'
+                        - start_datetime: '2099-12-27 13:00:00'
+                          end_datetime: '2099-12-27 17:00:00'
+                        - start_datetime: '2099-12-29 13:00:00'
+                          end_datetime: '2099-12-29 17:00:00'
+                    location:
+                        location: physical_location
+                        venue_name: Alpha Venue
+                        address_1: Bravo Address 1
+                        address_2: ''
+                        address_3: ''
+                        country_code: HK
                   attendees_and_pricing:
                     currency: 2
                     price_per_session: 10
