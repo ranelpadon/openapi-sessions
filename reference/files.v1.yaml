@@ -67,7 +67,7 @@ paths:
               properties:
                 file:
                   type: string
-                  format: byte
+                  format: uri
               required:
                 - file
         description: ''
