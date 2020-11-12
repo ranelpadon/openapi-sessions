@@ -205,10 +205,10 @@ paths:
           in: header
           name: Accept-Language
     post:
-      summary: post-sessions
+      summary: post-session
       tags:
         - Sessions API
-      operationId: post-sessions
+      operationId: post-session
       responses:
         '201':
           description: Created

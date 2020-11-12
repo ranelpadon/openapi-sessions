@@ -20,14 +20,15 @@ tags:
 paths:
   /files/images:
     get:
-      summary: post-images
+      summary: get-images
       tags:
         - Files API
       responses: {}
-      operationId: get-files-images
+      operationId: get-images
+      description: GET Images
     post:
-      summary: ''
-      operationId: post-files-images
+      summary: Post Image
+      operationId: post-image
       responses:
         '201':
           description: Created
@@ -43,7 +44,7 @@ paths:
                 example-1:
                   value:
                     status: success
-      description: POST Images
+      description: POST Image
       parameters:
         - schema:
             type: string
@@ -68,6 +69,8 @@ paths:
               required:
                 - file
         description: ''
+      tags:
+        - Files API
 security:
   - BearerAuth: []
 components:
