@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  title: organisation
+  title: organisations
   version: '1.0'
   description: API for Organisations
   contact:
@@ -15,8 +15,8 @@ servers:
   - url: 'https://magneticasia.stoplight.io/mocks/magneticasia/openapi-sessions/3104958'
     description: Stoplight Mock Server
 tags:
-  - name: Organisation API
-    description: Organisation CRUD and related stuff.
+  - name: Organisations API
+    description: Organisations CRUD and related stuff.
 paths: {}
 security:
   - BearerAuth: []

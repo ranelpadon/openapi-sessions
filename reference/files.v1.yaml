@@ -21,7 +21,8 @@ paths:
   /files/images:
     get:
       summary: post-images
-      tags: []
+      tags:
+        - Files API
       responses: {}
       operationId: get-files-images
     post:
@@ -64,6 +65,8 @@ paths:
                 file:
                   type: string
                   format: byte
+              required:
+                - file
         description: ''
 security:
   - BearerAuth: []
