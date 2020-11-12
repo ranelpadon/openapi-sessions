@@ -1,0 +1,28 @@
+openapi: 3.0.0
+info:
+  title: organisation
+  version: '1.0'
+  description: API for Organisations
+  contact:
+    name: Magnetic Asia
+    url: 'https://www.magneticasia.com/'
+    email: info@magneticasia.com
+  termsOfService: 'https://www.magneticasia.com/terms-conditions.html'
+  license:
+    name: MIT
+    url: 'https://opensource.org/licenses/MIT'
+servers:
+  - url: 'https://magneticasia.stoplight.io/mocks/magneticasia/openapi-sessions/165472'
+    description: Stoplight Mock Server
+tags:
+  - name: Organisation API
+    description: Organisation CRUD and related stuff.
+paths: {}
+security:
+  - BearerAuth: []
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: JWT
