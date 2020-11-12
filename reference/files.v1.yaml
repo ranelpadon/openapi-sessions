@@ -12,7 +12,7 @@ info:
     name: MIT
     url: 'https://opensource.org/licenses/MIT'
 servers:
-  - url: 'https://magneticasia.stoplight.io/mocks/magneticasia/openapi-sessions/165472'
+  - url: 'https://magneticasia.stoplight.io/mocks/magneticasia/openapi-sessions/336833'
     description: Stoplight Mock Server
 tags:
   - name: Files API
