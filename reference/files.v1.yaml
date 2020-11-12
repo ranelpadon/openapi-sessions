@@ -23,7 +23,9 @@ paths:
       summary: get-images
       tags:
         - Files API
-      responses: {}
+      responses:
+        '200':
+          description: OK
       operationId: get-images
       description: GET Images
     post:
