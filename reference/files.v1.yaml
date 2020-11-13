@@ -46,6 +46,11 @@ paths:
                 example-1:
                   value:
                     status: success
+                    url: /media/images/alpha.png
+                example-2:
+                  value:
+                    status: success
+                    url: /media/images/alpha.jpg
       description: POST Image
       parameters:
         - schema:
@@ -105,6 +110,7 @@ paths:
                 example-1:
                   value:
                     status: success
+                    url: /media/pds/alpha.pdf
       description: POST PDF
       parameters:
         - schema:
