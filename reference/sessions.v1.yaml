@@ -391,9 +391,28 @@ paths:
                       minimum: 1
                     price_per_session:
                       type: number
+                session_details:
+                  type: object
+                  required:
+                    - session_details
+                  properties:
+                    session_details:
+                      type: object
+                      required:
+                        - session_image_url
+                        - summary
+                      properties:
+                        session_image_url:
+                          type: string
+                          example: media/images/alpha.png
+                        summary:
+                          type: string
+                        description:
+                          type: string
               required:
                 - basic_information
                 - attendees_and_pricing
+                - session_details
             examples:
               example-1:
                 value:
@@ -424,6 +443,11 @@ paths:
                     currency: 2
                     price_per_session: 10
                     quantity_per_session: 25
+                  session_details:
+                    session_details:
+                      session_image_url: /media/images/alpha.png
+                      summary: Sample summary
+                      description: Sample description in WYSIWYG.
               example-2:
                 value:
                   basic_information:
@@ -486,6 +510,10 @@ paths:
                     currency: 2
                     price_per_session: 10
                     quantity_per_session: 25
+                  session_details:
+                    session_details:
+                      session_image_url: /media/images/alpha.png
+                      summary: Sample summary
   /videos/streamers:
     get:
       summary: get-video-streamers
