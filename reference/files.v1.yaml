@@ -39,18 +39,16 @@ paths:
               schema:
                 type: object
                 properties:
-                  status:
+                  relative_path:
                     type: string
                     example: success
+                  origin:
+                    type: string
               examples:
                 example-1:
                   value:
-                    status: success
-                    url: /media/images/alpha.png
-                example-2:
-                  value:
-                    status: success
-                    url: /media/images/alpha.jpg
+                    relative_path: /media/images/alpha.png
+                    origin: 'https://www.alpha.com'
       description: POST Image
       parameters:
         - schema:
@@ -103,14 +101,16 @@ paths:
               schema:
                 type: object
                 properties:
-                  status:
+                  relative_path:
                     type: string
                     example: success
+                  origin:
+                    type: string
               examples:
                 example-1:
                   value:
-                    status: success
-                    url: /media/pds/alpha.pdf
+                    relative_path: /media/images/alpha.png
+                    origin: 'https://www.alpha.com'
       description: POST PDF
       parameters:
         - schema:
