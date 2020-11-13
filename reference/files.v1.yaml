@@ -23,7 +23,9 @@ paths:
       summary: get-images
       tags:
         - Files API
-      responses: {}
+      responses:
+        '200':
+          description: OK
       operationId: get-images
       description: GET Images
     post:
@@ -44,6 +46,11 @@ paths:
                 example-1:
                   value:
                     status: success
+                    url: /media/images/alpha.png
+                example-2:
+                  value:
+                    status: success
+                    url: /media/images/alpha.jpg
       description: POST Image
       parameters:
         - schema:
@@ -65,9 +72,73 @@ paths:
               properties:
                 file:
                   type: string
-                  format: byte
+                  format: uri
               required:
                 - file
+            examples:
+              example-1:
+                value:
+                  file: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAgAElEQVR4nN29aZgcx3km+EZEZtZd1dV3oy80TgIEAZIiKZISbw29EiXZlrQryabl2bGHj3fHs6ORRuO1rLF3bOs0tUPKkj0WKa52JJGiRB0mJd4gwQPgIRAkARAHCTSABrob6PuqO4+pGFEhByf4nwAAAABJRU5ErkJggg=='
+        description: ''
+      tags:
+        - Files API
+  /files/pdfs:
+    get:
+      summary: get-pdfs
+      tags:
+        - Files API
+      responses:
+        '200':
+          description: OK
+      operationId: get-pdfs
+      description: GET PDFs
+    post:
+      summary: Post PDF
+      operationId: post-pdf
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: success
+              examples:
+                example-1:
+                  value:
+                    status: success
+                    url: /media/pds/alpha.pdf
+      description: POST PDF
+      parameters:
+        - schema:
+            type: string
+            pattern: application/json; version=1
+          in: header
+          name: Accept
+          required: true
+        - schema:
+            type: string
+            pattern: ^(en|zh-hant|zh-hans|ja|ko)$
+          in: header
+          name: Accept-Language
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: uri
+              required:
+                - file
+            examples:
+              example-1:
+                value:
+                  file: 'data:application/pdf;base64,JVBERi0xLjQKJcOIw4HDhMOXDQo4IDAgb2JqCjw8Ci9GaWx0ZXIgL0ZsYXRlRGVjb2RlIAovTGVuZ3RoIDEyMSAKPj4gc3RyZWFtCnicVYuxCsIwFEX3fsUZ06HxvdrktasgiJuQTdxMdYgUM+jvWxdBLtx77nB4In6M9tf1hn1JsXUnCwxh64NGOhPxqgM1M3Nq2CU2h1xeaE='
         description: ''
       tags:
         - Files API

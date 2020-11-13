@@ -391,9 +391,64 @@ paths:
                       minimum: 1
                     price_per_session:
                       type: number
+                session_details:
+                  type: object
+                  required:
+                    - session_details
+                  properties:
+                    session_details:
+                      type: object
+                      required:
+                        - session_image_url
+                        - summary
+                      properties:
+                        session_image_url:
+                          type: string
+                          example: media/images/alpha.png
+                        summary:
+                          type: string
+                        description:
+                          type: string
+                    organisation_profile:
+                      type: object
+                      properties:
+                        organisation_name:
+                          type: string
+                        website_url:
+                          type: string
+                        organisation_address:
+                          type: object
+                          required:
+                            - venue_name
+                            - address_1
+                            - country_code
+                          properties:
+                            venue_name:
+                              type: string
+                            address_1:
+                              type: string
+                            address_2:
+                              type: string
+                            address_3:
+                              type: string
+                            country_code:
+                              type: string
+                              pattern: '^[A-Z][A-Z]$'
+                        organisation_image_url:
+                          type: string
+                        summary:
+                          type: string
+                        description:
+                          type: string
+                      required:
+                        - organisation_name
+                        - organisation_address
+                        - organisation_image_url
+                        - summary
               required:
                 - basic_information
                 - attendees_and_pricing
+                - session_details
             examples:
               example-1:
                 value:
@@ -424,6 +479,23 @@ paths:
                     currency: 2
                     price_per_session: 10
                     quantity_per_session: 25
+                  session_details:
+                    session_details:
+                      session_image_url: /media/images/alpha.png
+                      summary: Session summary
+                      description: Session description in WYSIWYG.
+                    organisation_profile:
+                      organisation_name: Alpha Organisation
+                      website_url: 'https://www.alpha.com'
+                      organisation_address:
+                        venue_name: Alpha Venue
+                        address_1: Bravo Address 1
+                        address_2: ''
+                        address_3: ''
+                        country_code: HK
+                      organisation_image_url: /media/images/alpha.png
+                      summary: Organisation summary
+                      description: Session description in WYSIWYG
               example-2:
                 value:
                   basic_information:
@@ -486,6 +558,22 @@ paths:
                     currency: 2
                     price_per_session: 10
                     quantity_per_session: 25
+                  session_details:
+                    session_details:
+                      session_image_url: /media/images/alpha.png
+                      summary: Session summary
+                    organisation_profile:
+                      organisation_name: Alpha Organisation
+                      website_url: 'https://www.alpha.com'
+                      organisation_address:
+                        venue_name: Alpha Venue
+                        address_1: Bravo Address 1
+                        address_2: ''
+                        address_3: ''
+                        country_code: HK
+                      organisation_image_url: /media/images/alpha.png
+                      summary: Organisation summary
+                      description: Organisation description in WYSIWYG
   /videos/streamers:
     get:
       summary: get-video-streamers
