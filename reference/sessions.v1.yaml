@@ -409,6 +409,42 @@ paths:
                           type: string
                         description:
                           type: string
+                    organisation_profile:
+                      type: object
+                      properties:
+                        organisation_name:
+                          type: string
+                        website_url:
+                          type: string
+                        organisation_address:
+                          type: object
+                          required:
+                            - venue_name
+                            - address_1
+                            - country_code
+                          properties:
+                            venue_name:
+                              type: string
+                            address_1:
+                              type: string
+                            address_2:
+                              type: string
+                            address_3:
+                              type: string
+                            country_code:
+                              type: string
+                              pattern: '^[A-Z][A-Z]$'
+                        organisation_image_url:
+                          type: string
+                        summary:
+                          type: string
+                        description:
+                          type: string
+                      required:
+                        - organisation_name
+                        - organisation_address
+                        - organisation_image_url
+                        - summary
               required:
                 - basic_information
                 - attendees_and_pricing
@@ -446,8 +482,20 @@ paths:
                   session_details:
                     session_details:
                       session_image_url: /media/images/alpha.png
-                      summary: Sample summary
-                      description: Sample description in WYSIWYG.
+                      summary: Session summary
+                      description: Session description in WYSIWYG.
+                    organisation_profile:
+                      organisation_name: Alpha Organisation
+                      website_url: 'https://www.alpha.com'
+                      organisation_address:
+                        venue_name: Alpha Venue
+                        address_1: Bravo Address 1
+                        address_2: ''
+                        address_3: ''
+                        country_code: HK
+                      organisation_image_url: /media/images/alpha.png
+                      summary: Organisation summary
+                      description: Session description in WYSIWYG
               example-2:
                 value:
                   basic_information:
@@ -513,7 +561,19 @@ paths:
                   session_details:
                     session_details:
                       session_image_url: /media/images/alpha.png
-                      summary: Sample summary
+                      summary: Session summary
+                    organisation_profile:
+                      organisation_name: Alpha Organisation
+                      website_url: 'https://www.alpha.com'
+                      organisation_address:
+                        venue_name: Alpha Venue
+                        address_1: Bravo Address 1
+                        address_2: ''
+                        address_3: ''
+                        country_code: HK
+                      organisation_image_url: /media/images/alpha.png
+                      summary: Organisation summary
+                      description: Organisation description in WYSIWYG
   /videos/streamers:
     get:
       summary: get-video-streamers
