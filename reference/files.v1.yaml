@@ -62,24 +62,22 @@ paths:
             pattern: ^(en|zh-hant|zh-hans|ja|ko)$
           in: header
           name: Accept-Language
+      tags:
+        - Files API
       requestBody:
         content:
-          application/json:
+          multipart/form-data:
             schema:
               type: object
               properties:
                 file:
                   type: string
-                  format: uri
-              required:
-                - file
+                  format: binary
             examples:
               example-1:
                 value:
-                  file: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAgAElEQVR4nN29aZgcx3km+EZEZtZd1dV3oy80TgIEAZIiKZISbw29EiXZlrQryabl2bGHj3fHs6ORRuO1rLF3bOs0tUPKkj0WKa52JJGiRB0mJd4gwQPgIRAkARAHCTSABrob6PuqO4+pGFEhByf4nwAAAABJRU5ErkJggg=='
+                  file: string
         description: ''
-      tags:
-        - Files API
   /files/pdfs:
     get:
       summary: get-pdfs
