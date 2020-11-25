@@ -47,8 +47,8 @@ paths:
               examples:
                 example-1:
                   value:
-                    relative_path: /media/images/alpha.png
-                    origin: 'https://www.alpha.com'
+                    relative_path: /640/480/abstract
+                    origin: 'http://lorempixel.com'
       description: POST Image
       parameters:
         - schema:
