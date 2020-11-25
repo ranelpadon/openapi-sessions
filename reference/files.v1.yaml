@@ -68,15 +68,11 @@ paths:
         content:
           multipart/form-data:
             schema:
-              type: object
-              properties:
-                file:
-                  type: string
-                  format: binary
+              type: string
+              format: binary
             examples:
               example-1:
-                value:
-                  file: string
+                value: string
         description: ''
   /files/pdfs:
     get:
