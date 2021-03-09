@@ -76,16 +76,20 @@ paths:
                   format: password
                   example: alpha_bravo
                 opt_in:
-                  type: boolean
+                  type: integer
+                  enum:
+                    - 0
+                    - 1
                 tos:
-                  type: boolean
+                  type: integer
+                  enum:
+                    - 0
+                    - 1
               required:
                 - email
                 - first_name
                 - last_name
                 - password
-                - opt_in
-                - tos
             examples:
               example-1:
                 value:
