@@ -75,7 +75,7 @@ paths:
                   type: string
                   format: password
                   example: alpha_bravo
-                opt_in:
+                opt_out:
                   type: integer
                   enum:
                     - 0
@@ -90,6 +90,8 @@ paths:
                 - first_name
                 - last_name
                 - password
+                - opt_out
+                - tos
             examples:
               example-1:
                 value:
