@@ -589,20 +589,17 @@ paths:
                 items:
                   type: object
                   properties:
-                    id:
-                      type: integer
-                      minimum: 1
-                    name:
+                    value:
+                      type: string
+                    label:
                       type: string
               examples:
                 example-1:
                   value:
-                    - id: 1
-                      name: Zoom
-                    - id: 2
-                      name: YouTube
-                    - id: 3
-                      name: Facebook
+                    - value: sessionly_live
+                      label: Sessionly Live
+                    - value: zoom
+                      label: Zoom
       operationId: get-video-streamers
       description: Video Streamers list
       parameters:
