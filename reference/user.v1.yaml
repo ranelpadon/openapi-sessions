@@ -44,6 +44,16 @@ paths:
                   email:
                     type: string
                     format: email
+                  opt_out:
+                    type: integer
+                    enum:
+                      - 0
+                      - 1
+                  tos:
+                    type: integer
+                    enum:
+                      - 0
+                      - 1
               examples:
                 example-1:
                   value:
@@ -51,6 +61,8 @@ paths:
                     last_name: Bravo
                     email: alpha@bravo.com
                     token: abcdefghijklmnopqrstuvwxyz
+                    opt_out: 0
+                    tos: 1
           headers: {}
       description: Create user.
       requestBody:
