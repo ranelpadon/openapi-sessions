@@ -51,8 +51,6 @@ paths:
                     last_name: Bravo
                     email: alpha@bravo.com
                     token: abcdefghijklmnopqrstuvwxyz
-                    opt_out: 0
-                    tos: 1
           headers: {}
       description: Create user.
       requestBody:
