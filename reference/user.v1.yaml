@@ -41,16 +41,15 @@ paths:
                   token:
                     type: string
                     example: abcdefghijklmnopqrstuvwxyz
+                  email:
+                    type: string
+                    format: email
               examples:
                 example-1:
                   value:
                     first_name: Alpha
                     last_name: Bravo
-                    token: abcdefghijklmnopqrstuvwxyz
-                example-2:
-                  value:
-                    first_name: Alpha
-                    last_name: Bravo
+                    email: alpha@bravo.com
                     token: abcdefghijklmnopqrstuvwxyz
           headers: {}
       description: Create user.
