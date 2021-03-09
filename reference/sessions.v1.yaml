@@ -82,7 +82,7 @@ paths:
                     name:
                       type: string
                       example: Type - Alpha
-                    sub-categories:
+                    sub_categories:
                       type: array
                       items:
                         type: object
@@ -100,19 +100,19 @@ paths:
                   value:
                     - id: 1
                       name: Category - Alpha
-                      sub-categories:
+                      sub_categories:
                         - id: 4
                           name: Sub-Category - Alpha 1.1
                     - id: 2
                       name: Category - Bravo
-                      sub-categories:
+                      sub_categories:
                         - id: 5
                           name: Sub-Category - Bravo 1.1
                         - id: 6
                           name: Sub-Category - Bravo 1.2
                     - id: 3
                       name: Category - Charlie
-                      sub-categories:
+                      sub_categories:
                         - id: 7
                           name: Sub-Category - Charlie 1.1
       operationId: get-session-event-categories
