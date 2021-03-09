@@ -97,7 +97,7 @@ paths:
                   first_name: Alpha
                   last_name: Bravo
                   password: alpha_bravo
-                  opt_in: 0
+                  opt_out: 0
                   tos: 1
         description: User signup data.
       security: []
