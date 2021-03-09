@@ -44,16 +44,6 @@ paths:
                   email:
                     type: string
                     format: email
-                  opt_out:
-                    type: integer
-                    enum:
-                      - 0
-                      - 1
-                  tos:
-                    type: integer
-                    enum:
-                      - 0
-                      - 1
               examples:
                 example-1:
                   value:
@@ -87,12 +77,15 @@ paths:
                   example: alpha_bravo
                 opt_in:
                   type: boolean
+                tos:
+                  type: boolean
               required:
                 - email
                 - first_name
                 - last_name
                 - password
                 - opt_in
+                - tos
             examples:
               example-1:
                 value:
@@ -100,7 +93,8 @@ paths:
                   first_name: Alpha
                   last_name: Bravo
                   password: alpha_bravo
-                  opt_in: true
+                  opt_in: 0
+                  tos: 1
         description: User signup data.
       security: []
       parameters:
