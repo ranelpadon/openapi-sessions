@@ -38,25 +38,20 @@ paths:
                   last_name:
                     type: string
                     example: Bravo
-                  access_token:
+                  token:
                     type: string
                     example: abcdefghijklmnopqrstuvwxyz
-                  refresh_token:
-                    type: string
-                    example: abcdefghijklmnopqrstuvwxyz0123456789
               examples:
                 example-1:
                   value:
                     first_name: Alpha
                     last_name: Bravo
-                    access_token: abcdefghijklmnopqrstuvwxyz
-                    refresh_token: abcdefghijklmnopqrstuvwxyz0123456789
+                    token: abcdefghijklmnopqrstuvwxyz
                 example-2:
                   value:
                     first_name: Alpha
                     last_name: Bravo
-                    access_token: abcdefghijklmnopqrstuvwxyz
-                    refresh_token: abcdefghijklmnopqrstuvwxyz0123456789
+                    token: abcdefghijklmnopqrstuvwxyz
           headers: {}
       description: Create user.
       requestBody:
@@ -134,20 +129,16 @@ paths:
                     type: string
                     format: email
                     example: alpha@bravo.com
-                  access_token:
+                  token:
                     type: string
                     example: abcdefghijklmnopqrstuvwxyz
-                  refresh_token:
-                    type: string
-                    example: abcdefghijklmnopqrstuvwxyz0123456789
               examples:
                 example-1:
                   value:
                     first_name: Alpha
                     last_name: Bravo
                     email: alpha@bravo.com
-                    access_token: abcdefghijklmnopqrstuvwxyz
-                    refresh_token: abcdefghijklmnopqrstuvwxyz0123456789
+                    token: abcdefghijklmnopqrstuvwxyz
       description: Login user.
       requestBody:
         content:
